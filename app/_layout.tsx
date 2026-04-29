@@ -1,24 +1,27 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+import { PostHogProvider } from 'posthog-react-native';
 
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
+const POSTHOG_API_KEY = process.env.EXPO_PUBLIC_POSTHOG_KEY ?? '<ph_project_token>';
+const POSTHOG_HOST = process.env.EXPO_PUBLIC_POSTHOG_HOST ?? 'https://us.i.posthog.com';
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
+    <PostHogProvider
+      apiKey={POSTHOG_API_KEY}
+      debug
+      options={{
+        host: POSTHOG_HOST,
+        enableSessionReplay: true,
+        sessionReplayConfig: {
+          maskAllTextInputs: false,
+          maskAllImages: false,
+          throttleDelayMs: 1000,
+        },
+      }}
+    >
+      <Stack screenOptions={{ headerTitle: 'Scroll Repro' }} />
       <StatusBar style="auto" />
-    </ThemeProvider>
+    </PostHogProvider>
   );
 }
