@@ -1,0 +1,44 @@
+README.md
+  85a18f8efa2cfc3a 1,3-4,6-8,10,12-16,18,20-22,24,26-32,34-35,37,39,42,45-51,53,55-57,59-65,67-68,70,72-77
+app.json
+  7aea95860c948acd 20
+app/index.tsx
+  85a18f8efa2cfc3a 1-2,7,11,13-27,30-47,52-53,55-70,72-73
+  7aea95860c948acd 4-6,8,10,74-81,84-86,89-90
+app/_layout.tsx
+  85a18f8efa2cfc3a 5,12
+  7aea95860c948acd 3,6,10-11,13-23,25
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "35145a7970b7ef35243dd8196da3e2b7de69e41f",
+  "prompts": {
+    "7aea95860c948acd": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "a5ad6fe1-3096-4b95-b194-36760192e6f7",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "NTAP Kenan",
+      "messages": [],
+      "total_additions": 62,
+      "total_deletions": 36,
+      "accepted_lines": 35,
+      "overriden_lines": 0
+    },
+    "85a18f8efa2cfc3a": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "61bcdc08-17d2-4d08-b783-7e16a2e0d81d",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": null,
+      "messages": [],
+      "total_additions": 172,
+      "total_deletions": 46,
+      "accepted_lines": 136,
+      "overriden_lines": 0
+    }
+  }
+}
