@@ -1,9 +1,11 @@
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import { PostHogProvider } from 'posthog-react-native';
+import { Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+import { PostHogProvider } from "posthog-react-native";
 
-const POSTHOG_API_KEY = process.env.EXPO_PUBLIC_POSTHOG_KEY ?? '<ph_project_token>';
-const POSTHOG_HOST = process.env.EXPO_PUBLIC_POSTHOG_HOST ?? 'https://us.i.posthog.com';
+const POSTHOG_API_KEY =
+  process.env.EXPO_PUBLIC_POSTHOG_KEY ?? "<ph_project_token>";
+const POSTHOG_HOST =
+  process.env.EXPO_PUBLIC_POSTHOG_HOST ?? "https://us.i.posthog.com";
 
 export default function RootLayout() {
   return (
@@ -17,10 +19,11 @@ export default function RootLayout() {
           maskAllTextInputs: false,
           maskAllImages: false,
           throttleDelayMs: 1000,
+          screenshotModeBackgroundCapture: true,
         },
       }}
     >
-      <Stack screenOptions={{ headerTitle: 'Scroll Repro' }} />
+      <Stack screenOptions={{ headerTitle: "Scroll Repro" }} />
       <StatusBar style="auto" />
     </PostHogProvider>
   );
